@@ -61,7 +61,7 @@ public class Controller {
         List<MethodSpec> methodSpecs = javaGenerate.generateGetSetMethod(fieldSpecs);
         MethodSpec methodSpec = javaGenerate.generateToString(fieldSpecs, entry.getKey());
 
-        Builder builder = TypeSpec.classBuilder(entry.getKey());
+        Builder builder = TypeSpec.classBuilder(GenerateUtil.upper(entry.getKey()));
         // 循环封装属性
         for (FieldSpec fieldSpec : fieldSpecs) {
           builder.addField(fieldSpec);
